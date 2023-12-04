@@ -6,12 +6,18 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
+import static io.iqark.constant.Constant.STEAM_KEY;
+
 @ApplicationScoped
 public class SteamService {
     @RestClient
     SteamAPI steamAPI;
 
     public Response getPlayerData(String steamIds) {
-        return RUtil.success(steamAPI.getPlayerSummaries(steamIds, "41818F559459281A03B5D9EEAAA3E8E3"));
+        return RUtil.success(steamAPI.getPlayerSummaries(steamIds, STEAM_KEY));
+    }
+
+    public Response getMatchHistory(String accId, Integer matchesCount) {
+        return RUtil.success(steamAPI.getMatchHistory(accId, matchesCount, STEAM_KEY));
     }
 }

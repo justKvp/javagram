@@ -1,4 +1,4 @@
-package io.iqark.restclient.steampojo;
+package io.iqark.restclient.steampojo.getplayersummaries;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

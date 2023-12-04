@@ -21,9 +21,16 @@ public class GreetingResource {
     }
 
     @GET
-    @Path("/hello2")
+    @Path("/getPlayerData")
     @Produces(MediaType.APPLICATION_JSON)
     public Response hello2() {
         return steamService.getPlayerData("76561199435378592");
+    }
+
+    @GET
+    @Path("/getMatchHistory")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response hello3() {
+        return steamService.getMatchHistory("76561198018736829", 1);
     }
 }

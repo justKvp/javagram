@@ -3,6 +3,7 @@ package io.iqark.restclient.steampojo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 
 public class Player {
     @JsonProperty("steamid")
@@ -24,13 +25,13 @@ public class Player {
     @JsonProperty("avatarhash")
     private String avatarhash;
     @JsonProperty("lastlogoff")
-    private Timestamp lastlogoff;
+    private Instant lastlogoff;
     @JsonProperty("personastate")
     private Integer personastate;
     @JsonProperty("primaryclanid")
     private String primaryclanid;
     @JsonProperty("timecreated")
-    private Timestamp timecreated;
+    private Instant timecreated;
     @JsonProperty("personastateflags")
     private Integer personastateflags;
 
@@ -70,7 +71,7 @@ public class Player {
         return avatarhash;
     }
 
-    public Timestamp getLastlogoff() {
+    public Instant getLastlogoff() {
         return lastlogoff;
     }
 
@@ -82,7 +83,7 @@ public class Player {
         return primaryclanid;
     }
 
-    public Timestamp getTimecreated() {
+    public Instant getTimecreated() {
         return timecreated;
     }
 

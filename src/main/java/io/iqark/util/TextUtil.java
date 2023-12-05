@@ -7,8 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-public class JsonUtil {
-    public static JSONObject fromInputStream(InputStream is) throws IOException {
+public class TextUtil {
+    public static JSONObject getJsonFromInputStream(InputStream is) throws IOException {
         return new JSONObject(IOUtils.toString(is, StandardCharsets.UTF_8));
+    }
+
+    public static String getStringFromInputStream(InputStream is) throws IOException {
+        return IOUtils.toString(is, StandardCharsets.UTF_8);
     }
 }

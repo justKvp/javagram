@@ -1,21 +1,22 @@
 package io.iqark.resources;
 
-import io.iqark.services.OConstantHolder;
+import io.iqark.services.HeroService;
 import io.iqark.services.SteamService;
+import io.iqark.util.RUtil;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.json.JSONObject;
 
 @Path("/")
 public class GreetingResource {
     @Inject
     SteamService steamService;
     @Inject
-    OConstantHolder oConstantHolder;
+    HeroService heroService;
 
     @GET
     @Path("/hello")
@@ -25,10 +26,17 @@ public class GreetingResource {
     }
 
     @GET
-    @Path("/hello2")
+    @Path("/getHero/{name}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String hello2() {
-        return oConstantHolder.heroes.toString();
+    public Response getHero(@PathParam("name") String name) {
+        return RUtil.success(heroService.getHero(name));
+    }
+
+    @GET
+    @Path("/getHeroId/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getHeroId(@PathParam("id") Integer id) {
+        return RUtil.success(heroService.getHeroById(id));
     }
 
     @GET
